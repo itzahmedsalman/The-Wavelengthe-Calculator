@@ -1,0 +1,61 @@
+#include<stdio.h>
+#include<math.h>
+int main()
+{
+    //Assigning variables
+    int m;
+    double d, theta, wave_length;
+
+
+    //Collecting input data
+    printf("Enter the difference between the slits(d) in micrometer(10^-6): ");
+    scanf("%lf", &d);
+
+    printf("Enter the angular deviation(theta) in degrees: ");
+    scanf("%lf", &theta);
+
+    printf("Enter the order of maximum (m): ");
+    scanf("%d", &m);
+
+
+    //Conversion of angle from degree to radian
+    double radian = theta * (M_PI/180.0);
+
+
+    //Calculating the wavelength
+    wave_length = (d * 0.00001 * sin(radian))/ (m * 0.00000001);
+
+
+    //Printing the numeric value of the wavelength
+    printf("\nThe numeric value of the wavelength is %lf Nanometer\n", wave_length);
+
+
+    //Identifying the color of the light based on the wavelenth
+    if (wave_length >= 380 && wave_length < 450)
+        printf("The color of the light is Violet");
+
+    else if (wave_length >= 450 && wave_length < 485)
+        printf("The color of the light is Blue");
+
+    else if (wave_length >= 485 && wave_length < 500)
+        printf("The color of the light is Cyan");
+
+    else if (wave_length >= 500 && wave_length < 565)
+        printf("The color of the light is Green");
+
+    else if (wave_length >= 565 && wave_length < 590)
+        printf("The color of the light is Yellow");
+
+    else if (wave_length >= 590 && wave_length < 625)
+        printf("The color of the light is Orange");
+
+    else if (wave_length >= 625 && wave_length <= 750)
+        printf("The color of the light is Red");
+
+    else
+        printf("Out of the visible range");
+    
+
+
+    return 0;
+}
